@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_drawer"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.mehyo.theproject.ui.fragments.LogInFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_timerFragment"
+            app:destination="@id/timerFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_drawer"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.mehyo.theproject.ui.fragments.SplashFragment"
+        android:label="Splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_drawer"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_timerFragment"
+            app:destination="@id/timerFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_drawer"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.mehyo.theproject.ui.fragments.ListFragment"
+        android:label="List"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.mehyo.theproject.ui.fragments.TimerFragment"
+        android:label="Timer"
+        tools:layout="@layout/fragment_timer" />
+
+    <action android:id="@+id/toLogin"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/nav_drawer"
+        app:popUpToInclusive="true"
+        app:destination="@id/loginFragment"/>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.mehyo.theproject.ui.fragments.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="todoItem"
+            app:argType="com.mehyo.theproject.model.TodoItem" />
+    </fragment>
+</navigation>
