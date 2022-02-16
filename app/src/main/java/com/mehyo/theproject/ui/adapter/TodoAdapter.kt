@@ -30,6 +30,7 @@ class TodoAdapter(private val itemClickListener: OnItemClickListener):RecyclerVi
 
     fun setData(list:List<TodoItem>){
         this.todoItems=list
+        notifyDataSetChanged()
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoViewHolder = TodoViewHolder(TodoItemBinding.inflate(LayoutInflater.from(parent.context),parent,false))
 

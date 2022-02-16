@@ -26,10 +26,10 @@ class DetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //filling the textViews with the received args data
-        binding.tvUserid.text="${binding.tvUserid.text} ${args.todoItem.userId}"
-        binding.tvTodoid.text="${binding.tvTodoid.text} ${args.todoItem.id}"
-        binding.tvTitle.text="${binding.tvTitle.text} ${args.todoItem.title}"
-        binding.tvCompletedValue.text="${binding.tvCompletedValue.text} ${args.todoItem.completed}"
+        binding.tvUserid.append(" ${args.todoItem.userId}")
+        binding.tvTodoid.append(" ${args.todoItem.id}")
+        binding.tvTitle.append(" ${args.todoItem.title}")
+        binding.tvCompletedValue.append(" ${args.todoItem.completed}")
 
     }
 

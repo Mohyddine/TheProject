@@ -40,13 +40,12 @@ class ListFragment : Fragment(),OnItemClickListener {
 
         //observe the data from the viewModel and sent the list to the adapter
         //hide progressBar when data is available
-        listViewModel.todosAPILiveData.observe(viewLifecycleOwner, {data->
-            if (data!=null){
+        listViewModel.todosAPILiveData.observe(viewLifecycleOwner) { data ->
+            if (data != null) {
                 todoAdapter.setData(data)
-                todoAdapter.notifyDataSetChanged()
-                binding.progressBar.visibility=View.GONE
+                binding.progressBar.visibility = View.GONE
             }
-        })
+        }
 
         //implementing on refresh for swipeRefreshLayout
         binding.swipeRefreshLayout.setOnRefreshListener {

@@ -1,6 +1,5 @@
 package com.mehyo.theproject.ui.fragments
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.LayoutInflater
@@ -60,13 +59,13 @@ class TimerFragment : Fragment() {
             binding.timer.base = SystemClock.elapsedRealtime()
             dataStoreViewModel.saveFirstRunToDataStore(false)
         } else {
-            dataStoreViewModel.readTimerBaseFromDataStore.observe(viewLifecycleOwner, {
+            dataStoreViewModel.readTimerBaseFromDataStore.observe(viewLifecycleOwner) {
                 timerBaseCal(it)
-            })
+            }
         }
-        dataStoreViewModel.readFirstRunDateFromDataStore.observe(viewLifecycleOwner, { frd ->
+        dataStoreViewModel.readFirstRunDateFromDataStore.observe(viewLifecycleOwner) { frd ->
             binding.firstRunDate.text = frd.toString()
-        })
+        }
     }
 
     private fun timerBaseCal(savedTimerBase: Long) {
@@ -86,12 +85,12 @@ class TimerFragment : Fragment() {
             .setTitle("Exit")
             .setMessage("Do you want to exit the app?")
             .setCancelable(true)
-            .setPositiveButton("Yes", DialogInterface.OnClickListener { _, _ ->
+            .setPositiveButton("Yes") { _, _ ->
                 this.requireActivity().finish()
-            })
-            .setNegativeButton("No", DialogInterface.OnClickListener { dialog, _ ->
+            }
+            .setNegativeButton("No") { dialog, _ ->
                 dialog.dismiss()
-            })
+            }
             .show()
     }
 

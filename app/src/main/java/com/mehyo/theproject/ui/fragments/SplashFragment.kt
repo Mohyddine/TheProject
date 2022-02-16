@@ -29,9 +29,9 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Handler(Looper.getMainLooper()).postDelayed({
-            dataStoreViewModel.readLoginFromDataStore.observe(viewLifecycleOwner,{
+            dataStoreViewModel.readLoginFromDataStore.observe(viewLifecycleOwner) {
                 isLoggedIn(it)
-            })
+            }
         },1000)
     }
     //if remember login is saved navigate timerFragment
